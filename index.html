@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fathima Rishada - Professional Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f7f5f0;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    :root {
+      --navy: #0b192c;
+      --gold: #c59b27;
+      --gold-light: #d4af37;
+      --bg-cream: #faf8f5;
+      --card-bg: #ffffff;
+      --text-gray: #666666;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--bg-cream);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Header */
+    header {
+      background-color: var(--navy);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #ffffff;
+      font-size: 11px;
+      letter-spacing: 1px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover, nav ul li a.active {
+      color: var(--gold);
+    }
+
+    .btn-connect-top {
+      background-color: var(--gold);
+      color: #fff;
+      padding: 8px 18px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border-radius: 4px;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 50px 60px 0 60px;
+      position: relative;
+      background: linear-gradient(135deg, #faf8f5 65%, #f1ebe1 35%);
+    }
+
+    .hero-content {
+      max-width: 50%;
+      padding-bottom: 50px;
+    }
+
+    .greeting {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 15px;
+    }
+
+    .hero-title span {
+      display: block;
+      color: var(--gold);
+    }
+
+    .subtitle {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 1px;
+    }
+
+    .aspiring {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .hero-text {
+      font-size: 12px;
+      color: var(--text-gray);
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .btn-dark {
+      background-color: var(--navy);
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-outline {
+      border: 1px solid #dcd6cd;
+      color: var(--navy);
+      padding: 10px 20px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: transparent;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-links a {
+      width: 28px;
+      height: 28px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      font-size: 12px;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      width: 42%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-img-bg {
+      width: 320px;
+      height: 380px;
+      background-color: #ebdcd0;
+      border-radius: 160px 160px 0 0;
+      position: absolute;
+      bottom: 0;
+      z-index: 1;
+    }
+
+    .hero-img {
+      position: relative;
+      z-index: 2;
+      max-width: 340px;
+      height: auto;
+      display: block;
+    }
+
+    /* About & Career Goal */
+    .about-career {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 40px 60px;
+      border-top: 1px solid #eae5dd;
+    }
+
+    .sec-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .sec-header i {
+      color: var(--gold);
+      font-size: 16px;
+    }
+
+    .sec-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      color: var(--navy);
+      letter-spacing: 1px;
+    }
+
+    .about-career p {
+      font-size: 12px;
+      color: var(--text-gray);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .goal-subtitle {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 1px;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      padding: 30px 60px 40px 60px;
+      text-align: center;
+      background-color: #f5f1ea;
+    }
+
+    .skills-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      letter-spacing: 1px;
+      color: var(--navy);
+      margin-bottom: 25px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 15px;
+    }
+
+    .skill-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .skill-icon {
+      width: 48px;
+      height: 48px;
+      background: #eee8dc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+      color: var(--gold);
+      font-size: 18px;
+    }
+
+    .skill-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    /* Main Layout Grid */
+    .main-content {
+      display: grid;
+      grid-template-columns: 0.4fr 0.6fr;
+    }
+
+    /* Education Column */
+    .edu-col {
+      background-color: var(--navy);
+      color: #fff;
+      padding: 40px 30px;
+    }
+
+    .edu-col .sec-header h3 {
+      color: #fff;
+    }
+
+    .edu-timeline {
+      position: relative;
+      padding-left: 20px;
+      margin-top: 25px;
+      border-left: 1px solid var(--gold);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -5px;
+      top: 2px;
+      width: 9px;
+      height: 9px;
+      background-color: var(--gold);
+      border-radius: 50%;
+    }
+
+    .edu-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .edu-inst {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .edu-date {
+      display: inline-block;
+      font-size: 11px;
+      background-color: #1a293e;
+      color: var(--gold);
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .edu-desc {
+      font-size: 11px;
+      color: #a0aec0;
+      line-height: 1.5;
+    }
+
+    /* Right Column */
+    .right-col {
+      padding: 40px 30px;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 15px;
+      margin-bottom: 35px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid #e2dbd0;
+      border-radius: 6px;
+      padding: 15px;
+      position: relative;
+    }
+
+    .proj-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--navy);
+      color: #fff;
+      font-size: 9px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .proj-icon {
+      text-align: center;
+      color: var(--gold);
+      font-size: 20px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+
+    .proj-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .proj-desc {
+      font-size: 10px;
+      color: var(--text-gray);
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    /* Experience */
+    .exp-item {
+      position: relative;
+      padding-left: 20px;
+      border-left: 1px solid var(--gold);
+      margin-top: 15px;
+      margin-bottom: 35px;
+    }
+
+    .exp-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    .exp-company {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .exp-desc {
+      font-size: 11px;
+      color: var(--text-gray);
+      line-height: 1.5;
+    }
+
+    /* Values */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .value-card {
+      text-align: center;
+    }
+
+    .value-icon {
+      width: 36px;
+      height: 36px;
+      background: #f0e8dc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px auto;
+      color: var(--gold);
+      font-size: 14px;
+    }
+
+    .value-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+
+    .value-desc {
+      font-size: 9px;
+      color: var(--text-gray);
+      line-height: 1.3;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--navy);
+      color: #fff;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .connect-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .connect-icon {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+    }
+
+    .connect-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .connect-sub {
+      font-size: 10px;
+      color: #a0aec0;
+    }
+
+    .connect-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 11px;
+      color: #e2e8f0;
+    }
+
+    .connect-contact div {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .connect-contact i {
+      color: #a0aec0;
+      font-size: 12px;
+      width: 14px;
+    }
+
+    .footer-motto {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--gold);
+      text-align: right;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 40px;
+      font-size: 10px;
+      color: #a0aec0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header Navigation -->
+    <header>
+    
+      <nav>
+        <ul>
+          <li><a href="#" class="active">HOME</a></li>
+          <li><a href="#">ABOUT</a></li>
+          <li><a href="#">SKILLS</a></li>
+          <li><a href="#">EDUCATION</a></li>
+          <li><a href="#">PROJECTS</a></li>
+          <li><a href="#">EXPERIENCE</a></li>
+          <li><a href="#">CONTACT</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="btn-connect-top">LET'S CONNECT</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="greeting">HELLO, I'M</div>
+        <h1 class="hero-title">Fathima <span>Rishada</span></h1>
+        <div class="subtitle">BUSINESS INFORMATION SYSTEMS UNDERGRADUATE</div>
+        <div class="aspiring">ASPIRING BUSINESS ANALYST</div>
+        <p class="hero-text">
+          I am passionate about using data, technology and analytical thinking to understand business problems, improve processes and create value.
+        </p>
+        <div class="hero-buttons">
+          <a href="#" class="btn-dark"><i class="fa-regular fa-user"></i> ABOUT ME</a>
+          <a href="documents/cv.pdf" class="btn-outline" download>
+    <i class="fa-solid fa-download"></i> DOWNLOAD CV
+</a>
+</a>
+<!-- CV Section -->
+
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-regular fa-envelope"></i></a>
+          <a href="#"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="hero-img-bg"></div>
+        <!-- Use your actual profile image file name here -->
+        <img src="profile.jpg.png" alt="Fathima Rishada" class="hero-img">
+      </div>
+    </section>
+
+    <!-- About & Career Goal -->
+    <section class="about-career">
+      <div>
+        <div class="sec-header">
+          <i class="fa-regular fa-user"></i>
+          <h3>ABOUT ME</h3>
+        </div>
+        <p>I am a third year undergraduate following the BSc. (Hons) Business Information Systems degree at the University of Sri Jayewardenepura. I am interested in Business Analysis, Information Systems and Business Analytics.</p>
+        <p>I enjoy learning how technology and help organizations make better decisions and achieve their goals.</p>
+      </div>
+
+      <div>
+        <div class="sec-header">
+          <i class="fa-solid fa-crosshairs"></i>
+          <h3>CAREER GOAL</h3>
+        </div>
+        <div class="goal-subtitle">SHORT TERM</div>
+        <p>To gain practical experience through internships, projects and professional learning opportunities in Business Analysis.</p>
+        <div class="goal-subtitle">LONG TERM</div>
+        <p>To become a skilled Business Analyst who delivers value through analytical thinking, effective communication and technology.</p>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+      <h3 class="skills-title">MY SKILLS</h3>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="skill-name">Business<br>Analysis</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-chart-pie"></i></div>
+          <div class="skill-name">Business<br>Analytics</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-regular fa-file-excel"></i></div>
+          <div class="skill-name">Microsoft<br>Excel</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
+          <div class="skill-name">SQL &<br>Databases</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-regular fa-comments"></i></div>
+          <div class="skill-name">Communication</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-user-group"></i></div>
+          <div class="skill-name">Teamwork</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-regular fa-lightbulb"></i></div>
+          <div class="skill-name">Problem<br>Solving</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-regular fa-clock"></i></div>
+          <div class="skill-name">Time<br>Management</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Layout -->
+    <div class="main-content">
+      <!-- Education Column -->
+      <div class="edu-col">
+        <div class="sec-header">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <h3>EDUCATION</h3>
+        </div>
+        <div class="edu-timeline">
+          <div class="timeline-dot"></div>
+          <div class="edu-title">BSc. (Hons) Business Information Systems</div>
+          <div class="edu-inst">University of Sri Jayewardenepura</div>
+          <div class="edu-date">2024 – 2027</div>
+          <div class="edu-desc">
+            Faculty of Management Studies and Commerce<br>
+            Department of Information Technology
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Projects, Experience, Values -->
+      <div class="right-col">
+        <!-- Projects -->
+        <div>
+          <div class="sec-header">
+            <i class="fa-regular fa-folder-open"></i>
+            <h3>PROJECTS</h3>
+          </div>
+          <div class="projects-grid">
+            <div class="project-card">
+              <span class="proj-badge">01</span>
+              <div class="proj-icon"><i class="fa-solid fa-sliders"></i></div>
+              <div class="proj-title">IT Service Management Project</div>
+              <p class="proj-desc">Compared ServiceNow and ManageEngine ServiceDesk Plus. Exposed ITSM, automation and AI in service management.</p>
+            </div>
+            <div class="project-card">
+              <span class="proj-badge">02</span>
+              <div class="proj-icon"><i class="fa-solid fa-industry"></i></div>
+              <div class="proj-title">National PVC Field Visit</div>
+              <p class="proj-desc">Studied supply chain and operational processes through a university field visit to National PVC.</p>
+            </div>
+            <div class="project-card">
+              <span class="proj-badge">03</span>
+              <div class="proj-icon"><i class="fa-solid fa-chart-column"></i></div>
+              <div class="proj-title">Business Analytics Projects</div>
+              <p class="proj-desc">Worked on data analysis, visualization, Excel and Power BI based acorletics projects.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div>
+          <div class="sec-header">
+            <i class="fa-solid fa-briefcase"></i>
+            <h3>EXPERIENCE</h3>
+          </div>
+          <div class="exp-item">
+            <div class="timeline-dot"></div>
+            <div class="exp-title">System Operator Intern</div>
+            <div class="exp-company">People's Bank – Hambantota</div>
+            <p class="exp-desc">Gained experience in a professional environment and developed communication, responsibility, immroves and time-management skills.</p>
+          </div>
+        </div>
+
+        <!-- Professional Values -->
+        <div>
+          <div class="sec-header">
+            <i class="fa-regular fa-heart"></i>
+            <h3>PROFESSIONAL VALUES</h3>
+          </div>
+          <div class="values-grid">
+            <div class="value-card">
+              <div class="value-icon"><i class="fa-solid fa-book-open"></i></div>
+              <div class="value-title">Continuous Learning</div>
+              <div class="value-desc">Always improving my knowledge and skills.</div>
+            </div>
+            <div class="value-card">
+              <div class="value-icon"><i class="fa-regular fa-shield-check"></i></div>
+              <div class="value-title">Integrity & Responsibility</div>
+              <div class="value-desc">Doing my work professionally and on time.</div>
+            </div>
+            <div class="value-card">
+              <div class="value-icon"><i class="fa-solid fa-users"></i></div>
+              <div class="value-title">Teamwork</div>
+              <div class="value-desc">Collaboration leads to better recuits.</div>
+            </div>
+            <div class="value-card">
+              <div class="value-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+              <div class="value-title">Growth Mindset</div>
+              <div class="value-desc">Looking for opportunities to grow every day.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-top">
+        <div class="connect-left">
+          <div class="connect-icon"><i class="fa-regular fa-envelope"></i></div>
+          <div>
+            <div class="connect-title">LET'S CONNECT</div>
+            <div class="connect-sub">I am always open to discussing new opportunities, collaborations and professional connections.</div>
+          </div>
+        </div>
+        <div class="connect-contact">
+          <div><i class="fa-regular fa-envelope"></i> fathimarishada.08@gmail.com</div>
+          <div><i class="fa-brands fa-linkedin"></i> www.linkedin.com/in/fathima-rishada-9343152b5</div>
+          <div><i class="fa-solid fa-location-dot"></i> Sri Lanka</div>
+        </div>
+        
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Fathima Rishada. All Rights Reserved.
